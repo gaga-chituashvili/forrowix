@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import member1 from "./images/member1.png";
 
@@ -47,32 +48,42 @@ const TestimonialsSection = () => {
 
       {/* CARD LIST */}
       <div className="bg-black border border-[#1f1f1f] rounded-3xl px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-2">
           {testimonials.map((t, index) => (
             <article
               key={index}
-              className="min-w-[320px] md:min-w-[380px] lg:min-w-[420px] bg-[#111111] border border-[#1f1f1f] rounded-[26px] flex flex-col overflow-hidden"
+              className="
+          w-full
+          max-w-[430px]
+          flex flex-col
+          h-full
+          bg-[#111111]
+          border border-[#1f1f1f]
+          rounded-[26px]
+          overflow-hidden
+        "
             >
               {/* CONTENT */}
-              <div className="px-8 pt-8 pb-6">
-                <h3 className="text-lg md:text-xl font-semibold text-[#F9EFEC] tracking-wide mb-4">
+              <div className="flex flex-col px-8 pt-8 pb-6 h-full">
+                <h3 className="text-xl font-semibold text-[#F9EFEC] tracking-wide mb-4">
                   {t.title}
                 </h3>
-                <p className="text-sm md:text-[15px] leading-relaxed text-[#B3B3B2]">
+
+                <p className="text-[15px] leading-relaxed text-[#B3B3B2]">
                   {t.text}
                 </p>
+
+                <div className="mt-auto" />
               </div>
 
               {/* BOTTOM BAR */}
-              <div className="mt-auto bg-[#0b0b0b] px-8 py-5 flex items-center justify-between">
+              <div className="bg-[#0b0b0b] px-8 py-5 flex items-center justify-between border-t border-[#1f1f1f]">
                 <div className="flex items-center gap-3">
-                  {/* NUMBERED CIRCLE INSTEAD OF IMAGE */}
                   <img
                     src={member1}
-                    alt="member"
-                    className="w-10 h-10 rounded-full object-cover border border-[#2a2a2a]"
+                    alt="member1"
+                    className="w-10 h-10 rounded-full border border-[#2a2a2a]"
                   />
-
                   <div>
                     <p className="text-sm font-semibold text-[#F9EFEC]">
                       {t.name}

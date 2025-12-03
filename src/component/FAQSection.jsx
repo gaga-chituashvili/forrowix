@@ -1,32 +1,9 @@
-import { useState } from "react";
+import React from "react";
+import * as Accordion from "@radix-ui/react-accordion";
+import { faqs } from "./data/faqData";
 import { ArrowUpRight, Plus, Minus } from "lucide-react";
 
 const FAQSection = () => {
-  const faqs = [
-    {
-      q: "How long does it take to complete a web development project?",
-      a: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards.",
-    },
-    {
-      q: "Can you handle large-scale mobile app development projects?",
-      a: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards.",
-    },
-    {
-      q: "Can you integrate third-party APIs into our mobile app?",
-      a: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards.",
-    },
-    {
-      q: "How do you ensure cross-platform compatibility for mobile apps?",
-      a: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards.",
-    },
-    {
-      q: "What is your approach to user experience (UX) design?",
-      a: "The timeline varies depending on the project's complexity and requirements. Our team strives to deliver projects on time while maintaining the highest quality standards.",
-    },
-  ];
-
-  const [openIndex, setOpenIndex] = useState(0);
-
   return (
     <section className="pt-20 pb-20 bg-black w-full">
       {/* TOP BAR */}
@@ -43,75 +20,96 @@ const FAQSection = () => {
         </button>
       </div>
 
-      {/* MAIN CONTENT (2 COLUMNS) */}
+      {/* MAIN GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* LEFT - FAQ ACCORDION */}
-        <div className="flex flex-col gap-4">
+        {/* LEFT — ACCORDION */}
+        <Accordion.Root
+          type="single"
+          collapsible
+          defaultValue="0"
+          className="flex flex-col gap-4"
+        >
           {faqs.map((item, index) => (
-            <div
+            <Accordion.Item
               key={index}
+              value={String(index)}
               className="bg-[#111111] border border-[#1f1f1f] rounded-3xl px-8 py-6"
             >
-              {/* QUESTION ROW */}
-              <div
-                className="flex items-center justify-between cursor-pointer"
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              >
-                <h3 className="text-md md:text-lg text-[#F9EFEC]">{item.q}</h3>
+              <Accordion.Header>
+                <Accordion.Trigger className="w-full flex items-center justify-between cursor-pointer">
+                  <span className="text-md md:text-lg text-[#F9EFEC] text-left">
+                    {item.q}
+                  </span>
 
-                {/* ICON */}
-                <span className="w-9 h-9 rounded-full border border-[#222] flex items-center justify-center text-gray-300">
-                  {openIndex === index ? (
-                    <Minus size={18} />
-                  ) : (
-                    <Plus size={18} />
-                  )}
-                </span>
-              </div>
+                  {/* ICON SWITCH */}
+                  <span className="w-9 h-9 rounded-full border border-[#222] flex items-center justify-center text-gray-300 relative">
+                    <Plus
+                      size={18}
+                      className="absolute data-[state=open]:hidden"
+                    />
+                    <Minus
+                      size={18}
+                      className="absolute hidden data-[state=open]:block"
+                    />
+                  </span>
+                </Accordion.Trigger>
+              </Accordion.Header>
 
-              {/* ANSWER */}
-              {openIndex === index && (
+              {/* CONTENT */}
+              <Accordion.Content className="overflow-hidden data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
                 <p className="text-[#B3B3B2] text-sm leading-relaxed mt-4 border-t border-[#1f1f1f] pt-4">
                   {item.a}
                 </p>
-              )}
-            </div>
+              </Accordion.Content>
+            </Accordion.Item>
           ))}
-        </div>
+        </Accordion.Root>
 
-        {/* RIGHT - FORM */}
+        {/* RIGHT — FORM */}
         <div className="bg-[#111111] border border-[#1f1f1f] rounded-3xl p-10">
           <h3 className="text-lg tracking-[0.2em] uppercase text-[#F9EFEC] mb-6">
             ASK YOUR QUESTION
           </h3>
 
           {/* NAME */}
-          <p className="text-sm text-gray-300 uppercase tracking-wide mt-2 mb-1">
+          <label
+            htmlFor="faq-name"
+            className="text-sm text-gray-300 uppercase tracking-wide mb-1"
+          >
             NAME
-          </p>
+          </label>
           <input
+            id="faq-name"
             type="text"
-            placeholder="Enter your name"
             className="w-full bg-black border border-[#1f1f1f] rounded-xl px-4 py-3 text-gray-200 mb-4"
+            placeholder="Enter your name"
           />
 
           {/* EMAIL */}
-          <p className="text-sm text-gray-300 uppercase tracking-wide mb-1">
+          <label
+            htmlFor="faq-email"
+            className="text-sm text-gray-300 uppercase tracking-wide mb-1"
+          >
             EMAIL
-          </p>
+          </label>
           <input
+            id="faq-email"
             type="email"
-            placeholder="Enter your email"
             className="w-full bg-black border border-[#1f1f1f] rounded-xl px-4 py-3 text-gray-200 mb-4"
+            placeholder="Enter your email"
           />
 
           {/* QUESTION */}
-          <p className="text-sm text-gray-300 uppercase tracking-wide mb-1">
+          <label
+            htmlFor="faq-message"
+            className="text-sm text-gray-300 uppercase tracking-wide mb-1"
+          >
             YOUR QUESTION
-          </p>
+          </label>
           <textarea
-            placeholder="Enter Your Question Here ....."
+            id="faq-message"
             className="w-full bg-black border border-[#1f1f1f] rounded-xl px-4 py-3 text-gray-200 h-32 mb-6"
+            placeholder="Enter Your Question Here ....."
           />
 
           {/* BUTTON */}

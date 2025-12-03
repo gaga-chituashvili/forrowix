@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const Readycta = () => {
@@ -7,11 +8,11 @@ const Readycta = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 w-full">
           {/* LEFT TEXT */}
           <div className="max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-black tracking-tight">
+            <h2 className="text-4xl font-bold text-black tracking-tight">
               READY TO TRANSFORM YOUR DIGITAL PRESENCE?
             </h2>
 
-            <p className="text-black/80 mt-5 text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="text-[#262626]">
               Take the first step towards digital success with NexGen by your
               side. Our team of experts is eager to craft tailored solutions
               that drive growth for your business.

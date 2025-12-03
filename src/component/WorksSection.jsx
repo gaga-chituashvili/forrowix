@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import workimg1 from "./images/workimg1.png";
 import workimg2 from "./images/workimg2.png";
@@ -43,7 +44,7 @@ const WorksSection = () => {
 
       {/* WORK BLOCKS */}
       <div className="flex flex-col gap-10">
-        {works.map((w, index) => (
+        {works.map((w) => (
           <div
             key={w.title}
             className="bg-black border border-[#1f1f1f] rounded-3xl p-6 flex flex-col lg:flex-row gap-6 shadow-[0_0_25px_rgba(0,0,0,0.35)]"

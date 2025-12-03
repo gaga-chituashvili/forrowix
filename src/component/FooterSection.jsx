@@ -1,22 +1,55 @@
+import React from "react";
+import Marquee from "react-fast-marquee";
 import { ArrowUpRight } from "lucide-react";
-import { Instagram, Twitter, Dribbble, Vote, Copyright } from "lucide-react";
+import {
+  Instagram,
+  Twitter,
+  Dribbble,
+  Copyright,
+  CircleDot,
+} from "lucide-react";
+import { UilBehance } from "@iconscout/react-unicons";
 
 const FooterSection = () => {
   return (
     <footer className="bg-black w-full pt-20 pb-20">
       {/* MARQUEE BAR */}
-      <div
-        className="bg-[#0a0a0a] border border-[#1f1f1f] text-gray-300 
-                      px-6 py-3 rounded-xl text-center text-[13px] uppercase tracking-[0.25em] mb-10"
-      >
-        ON SOCIAL MEDIA • FOLLOW US ON SOCIAL MEDIA • FOLLOW US ON SOCIAL MEDIA
-        • FOLLOW US ON SOCIAL MEDIA
+      <div className="flex items-center h-16 bg-[#1A1A1A] border border-[#1f1f1f] px-6 py-3 rounded-xl text-[13px] uppercase tracking-[0.25em] mb-10">
+        <Marquee
+          gradient={false}
+          speed={40}
+          pauseOnHover={false}
+          className="flex items-center gap-6 text-gray-300"
+        >
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+
+          <span className="text-[#676665]">ON SOCIAL MEDIA</span>
+          <CircleDot size={10} className="mx-6 text-[#CE7D63]" />
+        </Marquee>
       </div>
 
-      {/* MAIN GRID (6 COLUMNS EXACTLY LIKE IMAGE) */}
+      {/* MAIN GRID*/}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-x-20">
-        {/* LEFT — SOCIAL CARDS (2 COLUMNS) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:col-span-2">
+        {/* LEFT — SOCIAL CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-[780px]">
           {/* INSTAGRAM */}
           <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl px-6 py-6 md:px-7 md:py-8">
             <div className="flex justify-between items-center mb-6">
@@ -68,8 +101,7 @@ const FooterSection = () => {
           {/* BEHANCE */}
           <div className="bg-[#111111] border border-[#1f1f1f] rounded-2xl px-6 py-6 md:px-7 md:py-8">
             <div className="flex justify-between items-center mb-6">
-              <Vote className="text-[#e59874]" size={32} />{" "}
-              {/* Replace with Behance icon later */}
+              <UilBehance size={32} className="text-[#e59874]" />{" "}
               <span className="w-10 h-10 border border-[#272727] rounded-full flex items-center justify-center">
                 <ArrowUpRight size={18} className="text-[#e59874]" />
               </span>
@@ -83,7 +115,7 @@ const FooterSection = () => {
           </div>
         </div>
 
-        {/* RIGHT — NAVIGATION (4 COLUMNS) */}
+        {/* RIGHT — NAVIGATION */}
         <div className="flex flex-col gap-8 lg:col-span-4">
           <div className="flex justify-between">
             {/* Home */}
@@ -168,7 +200,7 @@ const FooterSection = () => {
               </div>
             </div>
 
-            {/* FOOTER BOTTOM EXACT LIKE THE IMAGE */}
+            {/* FOOTER BOTTOM*/}
             <div
               className="flex flex-col md:flex-row justify-between items-start md:items-center 
                       text-gray-500 text-sm pt-6 border-t border-[#1a1a1a]"

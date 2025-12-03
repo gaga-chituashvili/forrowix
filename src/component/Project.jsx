@@ -1,5 +1,6 @@
-import coverimg from "../component/images/coverimg.jpg";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import React from "react";
+import image from "./images/Image.png";
+import { ArrowRight, ArrowUpRight, CircleDot } from "lucide-react";
 const Project = () => {
   return (
     <div className="min-h-screen bg-[#060606] text-white font-sans px-4 lg:px-10 py-6">
@@ -52,23 +53,44 @@ const Project = () => {
           </p>
 
           {/* Services Strip */}
-          <div className="mt-6 text-[#676665] bg-[#101010] border border-[#1f1f1f] rounded-xl px-4 py-3 text-[12px] tracking-widest flex flex-wrap gap-3">
-            • MARKETING • WEBSITE DESIGN • BRANDING • WEBSITE DEVELOPMENT •
-            MOBILE APP DEVELOPMENT • DIGITAL STRATEGY
+          <div className="mt-6 text-[#676665] bg-[rgb(16,16,16)] border border-[#1f1f1f] rounded-xl px-4 py-3 text-[12px] tracking-widest flex  items-center gap-1 ">
+            <span>MARKETING</span>
+            <CircleDot size={10} className=" text-[#CE7D63]" />
+            <span>WEBSITE DESIGN</span>
+            <CircleDot size={10} className=" text-[#CE7D63]" />
+            <span>BRANDING</span>
+            <CircleDot size={10} className=" text-[#CE7D63]" />
+            <span> WEBSITE DEVELOPMENT</span>
+            <CircleDot size={10} className=" text-[#CE7D63]" />
+            <span>MOBILE APP DEVELOPMENT</span>
+            <CircleDot size={10} className=" text-[#CE7D63]" />
+            <span>DIGITAL STRATEGY</span>
           </div>
         </div>
 
         {/* RIGHT HERO IMAGE */}
         <div className="bg-[#0d0d0d] rounded-3xl p-5 border border-[#1d1d1d] shadow-lg relative">
           <img
-            src={coverimg}
-            alt="project"
+            src={image}
+            alt="coverimg"
             className="rounded-2xl w-full h-[380px] object-cover"
           />
 
-          <button className="absolute top-5 right-5 w-16 h-16 rounded-full bg-[#f59a71] shadow-lg border-4 border-[#060606] flex items-center justify-center">
-            <span className="text-2xl text-black">↗</span>
-          </button>
+          {/* OUTER WRAPPER WITH ARC */}
+          <div className="absolute top-5 right-5 w-40 h-40 rounded-full bg-black flex items-center justify-center">
+            {/* HALF ARC */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div
+                className="w-[88%] h-[88%] rounded-full border-[10px] border-transparent 
+                      border-t-[#f59a71] border-l-[#f59a71] rotate-[-90deg]"
+              ></div>
+            </div>
+
+            {/* MAIN BUTTON */}
+            <button className="w-28 h-28 rounded-full bg-[#f59a71] shadow-lg border-4 border-[#060606] flex items-center justify-center">
+              <ArrowUpRight size={85} className="text-[#0F0F0F]" />
+            </button>
+          </div>
 
           <div className="mt-4">
             <h3 className="text-lg font-semibold tracking-wide">
